@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Listado de Personas</title>
+<script language="javascript" type="text/javascript" src="<?php echo Conectar::ruta();?>script/funciones.js"></script>
+</head>
+
+<body>
+<?php include("menu.phtml");?>
+
+<h2>Listado de Usuarios</h2>
+<?php
+if (isset($_GET["valor"]) and $_GET["valor"]==1)
+{
+	?>
+    <h2 style="color:#093">El usuario ha sido eliminado exitosamente</h2>
+    <?php
+}
+if (isset($_GET["valor"]) and $_GET["valor"]==2)
+{
+	?>
+    <h2 style="color:#ff0000">Usted no se puede eliminar a sí mismo</h2>
+    <?php
+}
+if (isset($_GET["valor"]) and $_GET["valor"]==3)
+{
+	?>
+    <h2 style="color:#093">Los datos del usuario han sido editados exitosamente</h2>
+    <?php
+}
+?>
+<table>
+<tr style="background-color:#666; color:#FFF; font-weight:bold;">
+<td valign="top" align="center">
+Nombre
+</td>
+<td valign="top" align="center">
+E-Mail
+</td>
+<td valign="top" align="center">
+Teléfono
+</td>
+<td valign="top" align="center">
+Dirección
+</td>
+<td valign="top" align="center">
+Login
+</td>
+<td valign="top" align="center">
+Password
+</td>
+<td valign="top" align="center">
+Editar
+</td>
+<td valign="top" align="center">
+Eliminar
+</td>
+</tr>
+<?php
+foreach ($datos as $dato)
+{
+?>
+<tr style="background-color:#f0f0f0;">
+<td valign="top" align="center">
+<?php echo $dato["nombre"];?>
+</td>
+<td valign="top" align="center">
+<?php echo $dato["correo"];?>
+</td>
+<td valign="top" align="center">
+<?php echo $dato["telefono"];?>
+</td>
+<td valign="top" align="center">
+<?php echo $dato["direccion"];?>
+</td>
+<td valign="top" align="center">
+<?php echo $dato["user"];?>
+</td>
+<td valign="top" align="center">
+<?php echo $dato["pass"];?>
+</td>
+<td valign="top" align="center">
+<a href="<?php echo Conectar::ruta();?>c-editarusuarios/i-<?php echo $dato["id_usuario"];?>/" title="Editar datos de <?php echo $dato["nombre"];?>">
+<img src="<?php echo Conectar::ruta();?>images/add.png" border="0" />
+</a>
+</td>
+<td valign="top" align="center">
+<a href="javascript:void(0);" title="Eiminar datos de <?php echo $dato["nombre"];?>" onclick="eliminar('<?php echo Conectar::ruta();?>c-eliminarusuario/i-<?php echo $dato["id_usuario"];?>/');">
+<img src="<?php echo Conectar::ruta();?>images/delete.png" border="0" />
+</a>
+</td>
+</tr>
+<?php
+}
+?>
+</table>
+
+
+<?php include("footer.phtml");?>
+</body>
+</html>

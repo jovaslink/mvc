@@ -1,0 +1,17 @@
+RewriteEngine On
+
+
+#personalizar errores de navegador
+ErrorDocument 404 /error.php
+ErrorDocument 403 /error.php
+
+
+#los archivos .aspx me los leerá como .php
+AddType application/x-httpd-php .aspx
+
+
+
+
+
+RewriteRule ^.*c-([0-9-a-z]+)\/$ index.php?accion=$1 [S]
+RewriteRule ^.*c-([0-9-a-z]+)/*/i-([0-9]+)\/$ index.php?accion=$1&valor=$2 [L]

@@ -1,0 +1,20 @@
+<ul>
+<?php
+if ($_SESSION["modulo_8"])
+{
+	?>
+    <li>Bienvenid@ <strong><?php echo $user[0]["user"];?></strong></li>
+    <?php	
+}
+?>
+
+
+
+<li><a href="<?php echo Conectar::ruta();?>c-home/">Home</a></li>
+<li><a href="<?php echo Conectar::ruta();?>c-registrousuarios/">Registrar Usuarios</a></li>
+<li><a href="<?php echo Conectar::ruta();?>c-listarusuarios/">Listar Usuarios</a></li>
+<li><a href="<?php echo Conectar::ruta();?>c-productos/">Listar Productos</a></li>
+<li><a href="<?php echo Conectar::ruta();?>c-inertarproductos/">Insertar Productos</a></li>
+<li><a href="<?php echo Conectar::ruta();?>c-salir/">Cerrar Sesión</a></li>
+</ul>
+<hr />

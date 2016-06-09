@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Listado de Personas</title>
+</head>
+
+<body onload="document.form.reset();document.form.nom.focus();">
+<?php include("menu.phtml");?>
+
+<!--********Formulario registro usuarios********-->
+
+
+
+<form name="form" action="" method="post">
+
+
+<h2>Editar datos de este Usuario</h2>
+Nombre : <input type="text" name="nom" value="<?php echo $datos[0]["nombre"];?>" />
+<br />
+E-Mail : <input type="text" name="correo" value="<?php echo $datos[0]["correo"];?>" />
+<br />
+Teléfono : <input type="text" name="tel" value="<?php echo $datos[0]["telefono"];?>" />
+<br />
+Contraseña : <input type="password" name="pass" value="<?php echo $datos[0]["pass"];?>" />
+<br />
+Dirección : <textarea name="dir" cols="30" rows="5"><?php echo $datos[0]["direccion"];?></textarea>
+<hr />
+<input type="hidden" name="grabar" value="si"/>
+<input type="hidden" name="id_usuario" value="<?php echo $datos[0]["id_usuario"];?>" />
+<input type="submit" value="Editar Datos" title="Editar datos" />
+</form>
+<!--****fin Formulario registro usuarios********-->
+
+
+<?php include("footer.phtml");?>
+</body>
+</html>
